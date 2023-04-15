@@ -8,19 +8,25 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Encryption Web</h1>
-    <div>
-      <label for="inputText">Input Text:</label>
-      <textarea id="inputText"></textarea>
+    <div class="input-container">
+      <h1>Encriptador</h1>
+        <label for="entrada">Texto:</label>
+        <textarea id="entrada" rows="4" cols="50" oninput="limitarMinusculas(this)"></textarea>
     </div>
-    <div>
-      <button onclick="encrypt()">Encrypt</button>
+    <div class="input-container">
+        <label for="resultado">Resultado:</label>
+        <textarea id="resultado" rows="4" cols="50" readonly></textarea>
     </div>
-    <div>
-      <label for="outputText">Output Text:</label>
-      <textarea id="outputText" readonly></textarea>
+    <div><button onclick="copiarTexto()">Copiar Resultado</button></div>
+    <div class="input-container">
+        <label for="accion">Acción:</label>
+        <select id="accion">
+            <option value="encriptar">Encriptar</option>
+            <option value="desencriptar">Desencriptar</option>
+        </select>
     </div>
-
+    <button onclick="procesar()">Procesar</button>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
