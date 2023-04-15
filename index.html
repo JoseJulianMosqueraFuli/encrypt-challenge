@@ -10,31 +10,41 @@
   <body>
     <div class="input-container">
       <h1>Encriptador</h1>
-        <label for="entrada">Texto:</label>
-        <textarea id="entrada" rows="4" cols="50" oninput="limitarMinusculas(this)"></textarea>
-        <div class="note">
-          <p><strong>Nota:</strong> Solo funciona letras minúsculas, no se utilizan letras con acentos
-            ni caracteres especiales excepto (!).</p>
-        </div>
+      <label for="entrada">Texto:</label>
+      <textarea
+        id="entrada"
+        rows="4"
+        cols="50"
+        oninput="limitarMinusculas(this)"></textarea>
+      <div class="note">
+        <p>
+          <strong>Nota:</strong> Solo funciona letras minúsculas, no se utilizan
+          letras con acentos ni caracteres especiales excepto (!).
+        </p>
+      </div>
     </div>
     <div class="input-container">
-        <label for="resultado">Resultado:</label>
-        <textarea id="resultado" rows="4" cols="50" readonly></textarea>
+      <label for="resultado">Resultado:</label>
+      <textarea id="resultado" rows="4" cols="50" readonly></textarea>
     </div>
     <div class="input-container">
       <button onclick="copiarTexto()">Copiar Resultado</button>
     </div>
     <div class="input-container">
-        <label for="accion">Acción:</label>
-        <select id="accion">
-            <option value="encriptar">Encriptar</option>
-            <option value="desencriptar">Desencriptar</option>
-        </select>
-    </div>
-    <div class="button-container">
-      <button onclick="procesar()">Procesar</button>
-    </div>  
-
+      <label for="accion">Acción:</label>
+      <select id="accion">
+        <option value="encriptar">Encriptar</option>
+        <option value="desencriptar">Desencriptar</option>
+      </select>
+      <div class="note">
+        <p>
+          <strong>Nota:</strong> Selecciona entre "Encriptar" o "Desencriptar"
+          el texto de entrada y presiona el boton Procesar.
+        </p>
+      </div>
+      <div class="button-container">
+        <button onclick="procesar()">Procesar</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
