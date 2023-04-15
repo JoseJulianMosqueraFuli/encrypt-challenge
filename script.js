@@ -43,6 +43,7 @@ function copiarTexto() {
     resultadoInput.select();
     resultadoInput.setSelectionRange(0, 99999); /* Para dispositivos móviles */
 
+    //Research why execCommand is Deprecated
     document.execCommand("copy");
 
     alert("Texto resultado copiado al portapapeles: " + resultadoInput.value);
