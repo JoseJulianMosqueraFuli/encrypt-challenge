@@ -9,8 +9,25 @@ body {
   text-align: center;
 }
 
+.input-container {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.note {
+  background-color: #007bff20;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+p {
+  font-size: 12px;
+}
+
 h1 {
   font-size: 24px;
+  text-align: center;
 }
 
 label {
@@ -30,6 +47,10 @@ button {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+.button-container {
+  text-align: center;
 }
 
 .result {
