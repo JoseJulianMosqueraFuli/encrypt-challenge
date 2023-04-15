@@ -4,7 +4,7 @@ function encrypt() {
 
     for (var i = 0; i < inputText.length; i++) {
         var charCode = inputText.charCodeAt(i);
-        var encryptedCharCode = charCode + 1; // Shift by 1 character
+        var encryptedCharCode = charCode + 10; // Shift by 10 character
         outputText += String.fromCharCode(encryptedCharCode);
     }
 
