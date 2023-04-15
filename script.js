@@ -1,16 +1,16 @@
-function procesar() {
-    var entrada = document.getElementById("entrada").value;
-    var accion = document.getElementById("accion").value;
-    var resultado = document.getElementById("resultado");
+function process() {
+    var input = document.getElementById("entrada").value;
+    var action = document.getElementById("accion").value;
+    var result = document.getElementById("resultado");
 
-    if (accion === "encriptar") {
-        resultado.value = encriptar(entrada);
-    } else if (accion === "desencriptar") {
-        resultado.value = desencriptar(entrada);
+    if (action === "encriptar") {
+        result.value = encrypt(input);
+    } else if (action === "desencriptar") {
+        result.value = Decrypt(input);
     }
 }
 
-function encriptar(texto) {
+function encrypt(texto) {
     texto = texto.replace(/e/g, "enter");
     texto = texto.replace(/i/g, "imes");
     texto = texto.replace(/a/g, "ai");
@@ -20,7 +20,7 @@ function encriptar(texto) {
     return texto;
 }
 
-function desencriptar(texto) {
+function Decrypt(texto) {
     texto = texto.replace(/enter/g, "e");
     texto = texto.replace(/imes/g, "i");
     texto = texto.replace(/ai/g, "a");
@@ -30,7 +30,7 @@ function desencriptar(texto) {
     return texto;
 }
 
-function limitarMinusculas(input) {
+function inputLimit(input) {
     var inputValue = input.value;
     var regex = /[^a-z\s!]/g;
     var newValue = inputValue.replace(regex, '').toLowerCase();
@@ -38,14 +38,14 @@ function limitarMinusculas(input) {
 }
 
 
-function copiarTexto() {
-    var resultadoInput = document.getElementById("resultado");
-    resultadoInput.select();
-    resultadoInput.setSelectionRange(0, 99999); /* Para dispositivos móviles */
+function copyText() {
+    var resultInput = document.getElementById("resultado");
+    resultInput.select();
+    resultInput.setSelectionRange(0, 99999); //Para dispositivos móviles
 
     //Research why execCommand is Deprecated
     document.execCommand("copy");
 
-    alert("Texto resultado copiado al portapapeles: " + resultadoInput.value);
+    alert("Texto resultado copiado al portapapeles: " + resultInput.value);
 }
 

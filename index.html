@@ -15,7 +15,7 @@
         id="entrada"
         rows="4"
         cols="50"
-        oninput="limitarMinusculas(this)"></textarea>
+        oninput="inputLimit(this)"></textarea>
       <div class="note">
         <p>
           <strong>Nota:</strong> Solo funciona letras minúsculas, no se utilizan
@@ -28,7 +28,7 @@
       <textarea id="resultado" rows="4" cols="50" readonly></textarea>
     </div>
     <div class="input-container">
-      <button onclick="copiarTexto()">Copiar Resultado</button>
+      <button onclick="copyText()">Copiar Resultado</button>
     </div>
     <div class="input-container">
       <label for="accion">Acción:</label>
@@ -43,7 +43,7 @@
         </p>
       </div>
       <div class="button-container">
-        <button onclick="procesar()">Procesar</button>
+        <button onclick="process()">Procesar</button>
       </div>
     </div>
     <script src="script.js"></script>
