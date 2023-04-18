@@ -109,7 +109,7 @@ body {
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #292b38;
+  background-color: #454960;
   color: #fff;
   display: flex;
   font-family: Roboto, sans-serif;
@@ -193,7 +193,7 @@ body {
   cursor: pointer;
 }
 .main__button-primary {
-  background-color: #4ea1fa;
+  background-color: #468edb;
   color: #fff;
   transition: background 250ms;
   margin-right: 0.75em;
@@ -202,20 +202,20 @@ body {
   background: #007bff;
 }
 .main__button-secondary {
-  background-color: #1d1e23;
+  background-color: #525561;
   border: 0.15em solid #1d1e23;
-  color: #4ea1fa;
+  color: #468edb;
   transition: background 250ms, border 250ms;
   margin-left: 0.75em;
 }
 .aside__button,
 .modal__button {
   font-family: 1.5em;
-  color: #4ea1fa;
+  color: #468edb;
   transition: opacity 250ms;
 }
 .main__button-secondary:hover {
-  border-color: #4ea1fa;
+  border-color: #468edb;
 }
 .aside {
   width: 30vw;
@@ -224,7 +224,7 @@ body {
   padding: 0 3em;
 }
 .aside__content {
-  background-color: #4ea1fa;
+  background-color: #468edb;
   box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.38);
   -webkit-box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.38);
   -moz-box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.38);
@@ -333,7 +333,7 @@ footer h3 a {
 }
 .modal__container {
   width: 35vw;
-  background-color: #4ea1fa;
+  background-color: #468edb;
   height: 50vh;
   border-radius: 2em;
   padding: 2em;
