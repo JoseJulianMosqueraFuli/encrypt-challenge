@@ -1,51 +1,74 @@
-function process() {
-    var input = document.getElementById("entrada").value;
-    var action = document.getElementById("accion").value;
-    var result = document.getElementById("resultado");
+const message = document.getElementById('message');
+const encryptBtn = document.getElementById('encrypt');
+const decryptBtn = document.getElementById('decrypt');
+const noMessageFound = document.getElementById('noMessageFound');
+const foundMessage = document.getElementById('foundMessage');
+const copyMessage = document.getElementById('copyMessage');
+const encryptedMessage = document.getElementById('encryptedMessage');
+const modal = document.getElementById("modal");
+const modalButton = document.getElementById("modalButton");
 
-    if (action === "encriptar") {
-        result.value = encrypt(input);
-    } else if (action === "desencriptar") {
-        result.value = Decrypt(input);
+const keys = {
+    'e': 'enter',
+    'i': 'imes',
+    'a': 'ai',
+    'o': 'ober',
+    'u': 'ufat'
+}
+
+const reversedKeys = Object.keys(keys).reduce((accum, next) => {
+    const value = keys[next];
+    accum[value] = next;
+    return accum;
+}, {})
+
+/**
+ * 
+ * @param {Record<string,string>} dictionary
+ * 
+ */
+function preRegExp(dictionary) {
+    const preRegex = Object.keys(dictionary).reduce((accum, next) => accum + "|" + next);
+    return new RegExp(preRegex, 'g')
+}
+
+function encryptText(text, dictionary) {
+    return text.replace(preRegExp(dictionary), (match) => dictionary[match]);
+}
+
+function checkString(string) {
+    let check = /[^a-z\! 0-9]/g.test(string);
+    if (check) {
+        modal.style.display = "flex";
+    }
+    return !check;
+}
+
+function toggleMessage(text, encryptedText) {
+    if (checkString(text) && text != "") {
+        if (foundMessage.classList.contains('aside__content--none')) {
+            foundMessage.classList.toggle('aside__content--none');
+            noMessageFound.classList.toggle('aside__content--none');
+        }
+        encryptedMessage.innerHTML = encryptedText;
     }
 }
 
-function encrypt(texto) {
-    texto = texto.replace(/e/g, "enter");
-    texto = texto.replace(/i/g, "imes");
-    texto = texto.replace(/a/g, "ai");
-    texto = texto.replace(/o/g, "ober");
-    texto = texto.replace(/u/g, "ufat");
+modalButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    modal.style.display = "none";
+});
 
-    return texto;
-}
+encryptBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    toggleMessage(message.value, encryptText(message.value, keys));
+});
 
-function Decrypt(texto) {
-    texto = texto.replace(/enter/g, "e");
-    texto = texto.replace(/imes/g, "i");
-    texto = texto.replace(/ai/g, "a");
-    texto = texto.replace(/ober/g, "o");
-    texto = texto.replace(/ufat/g, "u");
+decryptBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    toggleMessage(message.value, encryptText(message.value, reversedKeys));
+});
 
-    return texto;
-}
-
-function inputLimit(input) {
-    var inputValue = input.value;
-    var regex = /[^a-z\s!]/g;
-    var newValue = inputValue.replace(regex, '').toLowerCase();
-    input.value = newValue;
-}
-
-
-function copyText() {
-    var resultInput = document.getElementById("resultado");
-    resultInput.select();
-    resultInput.setSelectionRange(0, 99999); //Para dispositivos móviles
-
-    //Research why execCommand is Deprecated
-    document.execCommand("copy");
-
-    alert("Texto resultado copiado al portapapeles: " + resultInput.value);
-}
-
+copyMessage.addEventListener('click', () => {
+    navigator.clipboard.writeText(encryptedMessage.innerHTML);
+});
